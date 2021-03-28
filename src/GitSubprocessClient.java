@@ -97,6 +97,11 @@ public class GitSubprocessClient {
         return Subprocess.runCommand(command, repoPath);
     }
 
+    public String listBranches() {
+        String command = "git branch --list";
+        return Subprocess.runCommand(command, repoPath);
+    }
+
     public String gitPull(String branch) {
         String command = String.format("git pull origin %s", branch);
         return Subprocess.runCommand(command, repoPath);
