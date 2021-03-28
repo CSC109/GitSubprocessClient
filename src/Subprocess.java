@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Subprocess {
+
     public static String runCommand(String command) {
         return runCommand(command, ".");
     }
@@ -16,7 +17,7 @@ public class Subprocess {
                     .directory(new File(workingDirectory))
                     .command(args).inheritIO().start();
 
-            process.waitFor(); // wait for subprocess command to finish before moving on (why isn't this default)
+            process.waitFor(); // wait for subprocess command to finish before moving on
 
             return extractOutput(process);
         } catch (IOException | InterruptedException e) {
