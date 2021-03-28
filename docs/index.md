@@ -16,6 +16,15 @@ A GitSubprocssClient object instance can be created like so, where `repoPath` is
 GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
 ```
 
+An example repo path:
+
+```java
+String repoPath = "C:/Users/Alex/Documents/GitRepos/HelloWorld";
+GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
+```
+
+You may change the `repoPath` anytime using the setter method.
+
 From here, you can call any of the available methods.
 For example, if you wanted to create a commit for a repo, you would call the `gitCommit` method.
 The below example will call the `gitCommit` command on a repo:
