@@ -21,10 +21,9 @@ jobs:
       - name: Create JAR
         run: |
           echo ${{ github.sha }} > Release.txt
-          mkdir -p out/git/tools
+          mkdir -p "out/git/tools"
           cp -a src/client/ out/git/tools
           cd out
-          ls
           javac git/tools/*.java
           jar cf GitSubprocessClient.jar git/tools/*.class
           cd ..
