@@ -1,8 +1,8 @@
-# GitHub Subprocess Client
+# GitHub client.Subprocess Client
 
 ## What is this?
 
-This repo contains a collection of classes that will allow for running Git Subprocess calls from a Java program.
+This repo contains a collection of classes that will allow for running Git client.Subprocess calls from a Java program.
 
 ## Requirements
 
@@ -10,32 +10,21 @@ This repo contains a collection of classes that will allow for running Git Subpr
 
 ## Usage
 
-A GitSubprocssClient object instance can be created like so, where `repoPath` is the path to the target repo's root folder:
+A GitSubprocessClient object instance can be created like so, where `repoPath` is the path to the target repo's root folder:
 
 ```java
-GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
+client.GitSubprocessClient gitSubprocessClient = new client.GitSubprocessClient(repoPath);
 ```
 
 An example repo path:
 
 ```java
 String repoPath = "C:/Users/Alex/Documents/GitRepos/HelloWorld";
-GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
+client.GitSubprocessClient gitSubprocessClient = new client.GitSubprocessClient(repoPath);
 ```
 
 You may change the `repoPath` anytime using the setter method.
 
 From here, you can call any of the available methods.
-For example, if you wanted to create a commit for a repo, you would call the `gitCommit` method.
-The below example will call the `gitCommit` command on a repo:
-
-```java
-GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
-String commitResponse = gitSubprocessClient.gitCommit("added a println for hello world");
-System.out.println(commitResponse);
-```
-
-All Git Subprocess Client responses are Strings, and will be the exact output you would normally see from the terminal. 
-For that reason, they are a bit tricky to parse, but nothing that can't be done with a little extra code.
-
+Click [here] for descriptions/examples of the methods in the GitSubprocessClient object.
 

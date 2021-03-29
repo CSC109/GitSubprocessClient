@@ -1,4 +1,4 @@
-import org.omg.PortableInterceptor.SUCCESSFUL;
+package client;
 
 public class GitSubprocessClient {
 
