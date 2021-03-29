@@ -1,0 +1,39 @@
+---
+name: Publish
+
+on:
+  push:
+    branches:
+        - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        uses: actions/setup-java@v1
+        with:
+          java-version: '8'
+          java-package: jdk
+          architecture: x64
+        run: |
+          echo ${{ github.sha }} > Release.txt
+          mkdir -p out/git/tools
+          cp -a src/client/ out/git/tools
+          cd out/
+          javac git/tools/*.java
+          jar cf GitSubprocessClient.jar git/tools/*.class
+          cd ..
+          cp out/GitSubprocessClient.jar ./
+      - name: Test
+        run: cat Release.txt
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files:
+            - GitSubprocessClient.jar
+            - Release.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
