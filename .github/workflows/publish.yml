@@ -27,7 +27,7 @@ jobs:
           javac git/tools/client/*.java
           jar cf GitSubprocessClient.jar git/tools/client/*.class
           cd ..
-          cp out/GitSubprocessClient.jar ./
+          cp out/GitSubprocessClient.jar ./GitSubprocessClient-${GITHUB_REF#refs/*/}.jar
       - name: Test
         run: cat Release.txt
       - name: Release
