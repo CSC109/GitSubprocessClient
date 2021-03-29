@@ -34,7 +34,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            GitSubprocessClient.jar
+            GitSubprocessClient-${GITHUB_REF#refs/*/}.jar
             Release.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
