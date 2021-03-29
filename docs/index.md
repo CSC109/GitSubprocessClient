@@ -26,5 +26,5 @@ client.GitSubprocessClient gitSubprocessClient = new client.GitSubprocessClient(
 You may change the `repoPath` anytime using the setter method.
 
 From here, you can call any of the available methods.
-Click [here] for descriptions/examples of the methods in the GitSubprocessClient object.
+Click [here](./methods-overview) for descriptions/examples of the methods in the GitSubprocessClient object.
 
