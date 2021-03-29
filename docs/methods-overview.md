@@ -9,7 +9,7 @@
 ## Create Client Object Instance
 
 ```java
-client.GitSubprocessClient gitSubprocessClient = new client.GitSubprocessClient(repoPath);
+GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
 ```
 
 ## String Responses

@@ -2,7 +2,7 @@
 
 ## What is this?
 
-This repo contains a collection of classes that will allow for running Git client.Subprocess calls from a Java program.
+This repo contains a collection of classes that will allow for running Git Subprocess calls from a Java program.
 
 ## Requirements
 

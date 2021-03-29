@@ -1,4 +1,4 @@
-package client;
+package git.tools.client;
 
 import java.io.BufferedReader;
 import java.io.File;

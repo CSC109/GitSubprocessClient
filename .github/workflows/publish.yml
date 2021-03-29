@@ -21,11 +21,11 @@ jobs:
       - name: Create JAR
         run: |
           echo ${{ github.sha }} > Release.txt
-          mkdir -p "out/git/tools"
-          cp -a src/client/. out/git/tools
+          mkdir -p "out/git/tools/client"
+          cp -a src/git/tools/client/. out/git/tools/client/
           cd out
-          javac git/tools/*.java
-          jar cf GitSubprocessClient.jar git/tools/*.class
+          javac git/tools/client/*.java
+          jar cf GitSubprocessClient.jar git/tools/client/*.class
           cd ..
           cp out/GitSubprocessClient.jar ./
       - name: Test
