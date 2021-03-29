@@ -18,6 +18,8 @@ jobs:
           java-version: '8'
           java-package: jdk
           architecture: x64
+      - name: Set Release Version
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Create JAR
         run: |
           echo ${{ github.sha }} > Release.txt
@@ -27,14 +29,14 @@ jobs:
           javac git/tools/client/*.java
           jar cf GitSubprocessClient.jar git/tools/client/*.class
           cd ..
-          cp out/GitSubprocessClient.jar ./GitSubprocessClient-${GITHUB_REF#refs/*/}.jar
+          cp out/GitSubprocessClient.jar ./GitSubprocessClient-${{ env.RELEASE_VERSION }}.jar
       - name: Test
         run: cat Release.txt
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            GitSubprocessClient-${GITHUB_REF#refs/*/}.jar
+            GitSubprocessClient-${{ env.RELEASE_VERSION }}.jar
             Release.txt
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
