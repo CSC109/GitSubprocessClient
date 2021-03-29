@@ -22,12 +22,8 @@ jobs:
         run: |
           echo ${{ github.sha }} > Release.txt
           mkdir -p "out/git/tools"
-          cp -a src/client/ out/git/tools
+          cp -a src/client/. out/git/tools
           cd out
-          cd git
-          cd tools
-          echo HI
-          ls
           javac git/tools/*.java
           jar cf GitSubprocessClient.jar git/tools/*.class
           cd ..
