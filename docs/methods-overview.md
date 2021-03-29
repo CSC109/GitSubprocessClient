@@ -209,3 +209,13 @@ Applies current stashed changes.
 ```java
 String stashApply = gitSubprocessClient.gitStashApply();
 ```
+
+### Any Other Git Command
+
+There is a method called `runGitCommand` that can be used as a "catch all" to run any other Git command not already provided by the client.
+
+For example, to run a `git push origin master` using the `runGitCommit` method, it would look like this:
+
+```java
+String commit = gitSubprocessClient.runGitCommand("push origin master");
+```
