@@ -25,6 +25,12 @@ GitSubprocessClient gitSubprocessClient = new GitSubprocessClient(repoPath);
 
 You may change the `repoPath` anytime using the setter method.
 
+Required import:
+
+```java
+import git.tools.client.GitSubprocessClient;
+```
+
 You can then call any of the available methods exposed by the `GitSubprocessClient` object.
 Click [here](./methods-overview) for descriptions/examples of these methods.
 
