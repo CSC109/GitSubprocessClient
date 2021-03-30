@@ -19,13 +19,14 @@ public class Subprocess {
 
             process = new ProcessBuilder()
                     .directory(new File(workingDirectory))
-                    .command(args).start();
+                    .command(args)
+                    .start();
 
             process.waitFor(); // wait for subprocess command to finish before moving on
             String output = extractOutput(process);
+            String error = extractError(process);
             process.destroy();
-
-            return output;
+            return (output + "\n" + error).trim();
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException("Failed to run command " + command + ": " + e.getMessage());
         }
@@ -43,19 +44,14 @@ public class Subprocess {
         return builder.toString();
     }
 
-    private static String extractError(Process process) {
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-            String line = null;
-            StringBuilder builder = new StringBuilder();
-            while ((line = reader.readLine()) != null) {
-                builder.append(line);
-                builder.append(System.getProperty("line.separator"));
-            }
-            return builder.toString();
-        } catch (IOException e) {
-            return "";
+    private static String extractError(Process process) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+        String line = null;
+        StringBuilder builder = new StringBuilder();
+        while ((line = reader.readLine()) != null) {
+            builder.append(line);
+            builder.append(System.getProperty("line.separator"));
         }
-
+        return builder.toString();
     }
 }
