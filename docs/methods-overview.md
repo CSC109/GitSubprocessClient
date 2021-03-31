@@ -210,6 +210,15 @@ Applies current stashed changes.
 String stashApply = gitSubprocessClient.gitStashApply();
 ```
 
+### Git Clone
+
+Clones remote repo to local machine.
+Url to clone must be supplied.
+
+```json
+String clone = gitSubprocessClient.gitClone();
+```
+
 ### Any Other Git Command
 
 There is a method called `runGitCommand` that can be used as a "catch all" to run any other Git command not already provided by the client.

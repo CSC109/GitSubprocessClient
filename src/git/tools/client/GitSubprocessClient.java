@@ -126,4 +126,9 @@ public class GitSubprocessClient {
         String command = "git stash apply";
         return Subprocess.runCommand(command, repoPath);
     }
+
+    public String gitClone(String url) {
+        String command = String.format("git clone %s", url);
+        return Subprocess.runCommand(command, repoPath);
+    }
 }
