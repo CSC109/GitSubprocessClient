@@ -44,7 +44,6 @@ public class GitSubprocessClient {
 
     public String gitCommit(String message) {
         String command = String.format("git commit -m \"%s\"", message);
-        System.out.println(command);
         return Subprocess.runCommand(command, repoPath);
     }
 
