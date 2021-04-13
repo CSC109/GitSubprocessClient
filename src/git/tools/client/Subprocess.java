@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Subprocess {
 
@@ -15,11 +19,17 @@ public class Subprocess {
         Process process = null;
 
         try {
-            String[] args = command.split("\\s+");
+            System.out.println(command);
+
+            ArrayList<String> commandParts = new ArrayList<String>();
+            Matcher m = Pattern.compile("([^\"]\\S*|\".+?\")\\s*").matcher(command);
+            while (m.find()) {
+                commandParts.add(m.group(1));
+            }
 
             process = new ProcessBuilder()
                     .directory(new File(workingDirectory))
-                    .command(args)
+                    .command(commandParts)
                     .start();
 
             process.waitFor(); // wait for subprocess command to finish before moving on

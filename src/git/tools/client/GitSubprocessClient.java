@@ -43,12 +43,7 @@ public class GitSubprocessClient {
     }
 
     public String gitCommit(String message) {
-        String command = "";
-        if (OSUtil.getOS() == OSUtil.OS.WINDOWS) {
-            command = String.format("git commit -m \"%s\"", message);
-        } else if (OSUtil.getOS() == OSUtil.OS.MAC) {
-            command = String.format("git commit -m '%s'", message);
-        }
+        String command = String.format("git commit -m \"%s\"", message);
         return Subprocess.runCommand(command, repoPath);
     }
 
