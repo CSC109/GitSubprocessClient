@@ -167,6 +167,14 @@ Lists all branch names in repo.
 String branches = gitSubprocessClient.listBranches();
 ```
 
+### Get Current Branch Name
+
+Gets the name of the current branch the repo has checked out.
+
+```java
+String branchName = gitSubprocessClient.getCurrentBranchName();
+```
+
 ### Git Pull
 
 Performs a pull.

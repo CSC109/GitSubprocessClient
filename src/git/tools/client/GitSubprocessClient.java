@@ -102,6 +102,11 @@ public class GitSubprocessClient {
         return Subprocess.runCommand(command, repoPath);
     }
 
+    public String getCurrentBranchName() {
+        String command = "git name-rev --name-only HEAD";
+        return Subprocess.runCommand(command, repoPath);
+    }
+
     public String gitPull(String branch) {
         String command = String.format("git pull origin %s", branch);
         return Subprocess.runCommand(command, repoPath);

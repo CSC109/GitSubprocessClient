@@ -19,9 +19,7 @@ public class Subprocess {
         Process process = null;
 
         try {
-            System.out.println(command);
-
-            ArrayList<String> commandParts = new ArrayList<String>();
+            ArrayList<String> commandParts = new ArrayList<>();
             Matcher m = Pattern.compile("([^\"]\\S*|\".+?\")\\s*").matcher(command);
             while (m.find()) {
                 commandParts.add(m.group(1));
