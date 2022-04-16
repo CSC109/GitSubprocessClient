@@ -223,7 +223,7 @@ String stashApply = gitSubprocessClient.gitStashApply();
 Clones remote repo to local machine.
 Url to clone must be supplied.
 
-```json
+```java
 String clone = gitSubprocessClient.gitClone();
 ```
 
