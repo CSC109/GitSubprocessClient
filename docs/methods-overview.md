@@ -25,7 +25,7 @@ These are literally identical to the Git terminal commands, just being run in a 
 ### Git Init
 
 ```java
-String gitInit = gitSubprocessClient.getInit();
+String gitInit = gitSubprocessClient.gitInit();
 ```
 
 ### Git Remote Add
@@ -34,7 +34,7 @@ Remote name and url must be supplied.
 Below will add a remote named "origin" with the url "https://github.com/CSC109/GitSubprocessClient.git"
 
 ```java
-String gitRemoteAdd = gitSubprocessClient.getRemoteAdd("origin", "https://github.com/CSC109/GitSubprocessClient.git");
+String gitRemoteAdd = gitSubprocessClient.gitRemoteAdd("origin", "https://github.com/CSC109/GitSubprocessClient.git");
 ```
 
 ### Git Add File
